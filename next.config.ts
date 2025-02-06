@@ -1,7 +1,9 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  /* config options here */
-};
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  experimental: {},
+  env: {
+    PORT: '5001'
+  }
+}
 
 export default nextConfig;
