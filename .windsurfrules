@@ -1,0 +1,21 @@
+1. Language of commuication is english
+use websearch only when necessary or when you need to update information 
+always get the latest information from the official documentation about the api integrations
+we will always create github repositories for the projects we create
+we will always use typescript when creating new projects
+we will always use eslint when creating new projects
+we will always use tailwind when creating new projects
+we will always use next.js when creating new projects   
+we always commit and push to github
+after each commit we always pull the latest changes from github
+we always use git merge to merge the changes from the remote repository into the local repository
+we always use git add to stage the changes
+we always use git commit to commit the changes
+we always use git push to push the changes to the remote repository
+we commit to the main branch only when the build is successful without any typescript errors 
+our code will be reviewed and tested by a senior software engineer before being deployed to production 
+we use vercel to deploy our app
+it autodeploys when we push to the main branch, so we need to be careful not to push unnecessary changes
+always refer to plan.md checklist.md and readme.md before starting a new project
+we will always use gitignore to ignore the files and directories that are not needed. 
+always create a file called memories.md in the root directory of the project, and log stagewise information in it and refer to it when needed
