@@ -30,18 +30,37 @@ export default function OmniHumanPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!image || !audioFile) return;
+
     setLoading(true);
+    setResult(null);
     
-    // TODO: Integrate with OmniHuman-1 API when available
     try {
-      // Simulated API call
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      const formData = new FormData();
+      formData.append('image', image);
+      formData.append('audio', audioFile);
+
+      const response = await fetch('/api/sadtalker', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.message || 'Video generation failed');
+      }
+
+      // Get the video blob
+      const videoBlob = await response.blob();
+      const videoUrl = URL.createObjectURL(videoBlob);
+      
       setResult({
-        error: 'API integration pending. This is a UI demo.'
+        videoUrl,
       });
     } catch (error) {
+      console.error('Generation error:', error);
       setResult({
-        error: 'An error occurred during generation.'
+        error: error instanceof Error ? error.message : 'An error occurred during generation'
       });
     } finally {
       setLoading(false);
